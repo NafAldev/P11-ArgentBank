@@ -1,0 +1,38 @@
+.error {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 50px;
+}
+
+.error_Number{
+    color: #42b983;
+    margin: 50px 0 0 0;
+    font-size: 200px;
+    font-weight: 700;
+        @media (max-width:768px){
+            font-size: 150px;
+        }
+}
+
+.error_Txt{
+    color: #42b983;
+    font-size: 36px;
+    text-align: center;
+        @media (max-width:768px){
+            font-size: 22px;
+            margin: 0 10px;
+        }
+}
+
+.error_HomeLink{
+    color: black;
+    font-size: 18px;
+    margin-bottom: 50px;
+       
+}
+
+.error_HomeLink:hover{
+    text-decoration:underline;
+}
