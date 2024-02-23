@@ -8,8 +8,8 @@ function Account({ title, amount, description, showTransactionsButton }) {
         <p className="account-amount">{amount}</p>
         <p className="account-amount-description">{description}</p>
       </div>
-      <div class="account-content-wrapper cta">
-          <button class="transaction-button">View transactions</button>
+      <div className="account-content-wrapper cta">
+          <button className="transaction-button">View transactions</button>
       </div>
     </section>
   );

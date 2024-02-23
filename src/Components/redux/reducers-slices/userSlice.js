@@ -1,51 +1,61 @@
-import { createAsyncThunk, createSlice} from "@reduxjs/toolkit";
-import Axios from "axios";
+import { createSlice} from "@reduxjs/toolkit";
+import { loginUser } from "../actions/authApi";
 
 
-
-export const loginUser = createAsyncThunk(
-  'user/loginUser',
-  async(userCredentials)=> {
-      const request = await Axios.post("http://localhost:3001/api/v1/user/login", userCredentials)
-      const response = await request.data.data;
-      localStorage.setItem('user', JSON.stringify(response));
-      return response;
-
-  }
-)
- 
 
 const userSlice = createSlice ({
   name: 'user',
   initialState: {
     user: null,
-    isAutentificated: false
+    isAutentificated: false,
+    loading : false,
+    error : null
+
   },
+  reducers: {
+    logoutUser: (state) => {
+      state.isAutentificated = false;
+      state.loading = false;
+      state.error = null;
+    },
+    resetState: (state) => {
+      state.user = null;
+      state.isAutentificated = false;
+      state.loading = false;
+      state.error = null;
+    }, 
   extraReducers : (builder) =>
   builder
   .addCase(loginUser.pending,(state)=>{
     state.user = null;
     state.isAutentificated = false;
+    state.loading = true;
+    state.error = null;
   })
-  .addCase(loginUser.fulfilled,(state,action)=>{
-    state.user = action.payload ;
-    console.log(action.payload);
-    state.isAutentificated = true;
-  })
-  .addCase(loginUser.rejected,(state,action)=> {
+  .addCase(loginUser.fulfilled, (state, action) => {
+    if (action.payload.body) {
+      state.user = action.payload.body.user;
+      state.isAutentificated = true;
+      state.loading = false;
+      state.error = null;
+    } else {
+      console.error('Response body is undefined:', action.payload);
+    }
+})
+  .addCase(loginUser.rejected, (state, action) => {
     state.user = null ;
     state.isAutentificated = false;
-    console.log(action.error.message);
-    if ( action.error.message === 'Echec de la connexion'){
-      state.error = 'Accès refusé ! Identifiants invalides '
-    } else {
-      state.error = action.error.message; 
-    }
+    state.loading = null;
+    console.log('Rejected action error message:', action.error.message); // Ajoutez ce log pour examiner le contenu du message d'erreur
+    state.error = action.payload.error.message;
   })
-});
- 
+}
+})
 
-// console.log(userSlice);
 
+
+export const { logoutUser, resetState } = userSlice.actions;
+
+export const selectUser = (state) => state.user.isAutentificated;
 
 export default userSlice.reducer;

@@ -5,10 +5,10 @@ import HeaderAccount from '../Components/HeaderAccount'
 function Dashboard() {
   return (
     <>
-    <main class="main bg-dark">
+    <main className="main bg-dark">
     <HeaderAccount/>
 
-    <h2 class="sr-only">Accounts</h2>
+    <h2 className="sr-only">Accounts</h2>
     
     <Account
     title="Argent Bank Checking (x8349)"
