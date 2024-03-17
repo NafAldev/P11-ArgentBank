@@ -1,12 +1,13 @@
 import React from 'react'
 import Account from '../Components/Account'
-import HeaderAccount from '../Components/HeaderAccount'
+import UserProfileEditor from '../Components/UserProfileEditor'
+
 
 function Dashboard() {
   return (
     <>
     <main className="main bg-dark">
-    <HeaderAccount/>
+    <UserProfileEditor/>
 
     <h2 className="sr-only">Accounts</h2>
     

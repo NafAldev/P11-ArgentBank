@@ -8,8 +8,8 @@ html {
 
 body {
   margin: 0;
-  display: flex;
-  flex-direction: column;
+  padding: 0;
+  box-sizing: border-box;
   min-height: 100vh;
 }
 
@@ -19,6 +19,16 @@ body {
 
 .bg-dark {
   background-color: #12002b;
+  min-height: 80vh;
+  padding-bottom: 40px;
+  display: flex;
+  flex-direction: column;
+
+  
+}
+
+h2{
+  color: #fff;
 }
 
 .sr-only {
@@ -45,7 +55,19 @@ body {
 .main-nav a {
   font-weight: bold;
   color: #2c3e50;
+  display: flex;
+  gap: 5px;
 }
+
+.main-nav-username {
+  font-weight: bold;
+  margin-right: 5px;
+}
+.main-nav-signout {
+  display: flex;
+  gap: 5px;
+}
+
 
 .main-nav a.router-link-exact-active {
   color: #42b983;
@@ -54,6 +76,10 @@ body {
 .main-nav-item {
   text-decoration: none;
   margin-right: 0.5rem;
+}
+
+.main-nav-icon {
+  font-size: 20px;
 }
 
 .main-nav-item:hover {
@@ -70,8 +96,59 @@ body {
   width: 200px;
 }
 
+/* Username form  */
+
+.edit-user-info-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding-bottom: 30px;
+
+}
+
+.edit-user-info-form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.edit-user-info-input label {
+  color: #fff; 
+  
+}
+
+.edit-user-info-input{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+
+  
+}
+
+.edit-user-buttons{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  
+}
+
+.edit-user-button{
+  display: block;
+  width: 100%;
+  padding: 8px;
+  font-size: 1.1rem;
+  font-weight: bold;
+  margin-top: 1rem;
+  border-color: #00bc77;
+  background-color: #00bc77;
+  color: #fff;
+}
+
 .hero {
-  background-image: url('./img/bank-tree.jpeg');
+  background-image: url('./img/bank-tree.webp');
   background-position: 0 -50px;
   background-size: cover;
   background-repeat: no-repeat;
@@ -172,6 +249,7 @@ body {
   margin: 0 auto;
   margin-top: 3rem;
   padding: 2rem;
+  min-height: 25vh;
 }
 
 .sign-in-icon {

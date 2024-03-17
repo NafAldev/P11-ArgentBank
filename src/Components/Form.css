@@ -1,10 +1,8 @@
-
-
 .alert-danger {
-    color: #721c24; /* Couleur du texte pour les erreurs */
-    background-color: #f8d7da; /* Couleur de fond pour les erreurs */
-    border: 1px solid #f5c6cb; /* Bordure pour les erreurs */
-    padding: 10px; /* Espace intérieur pour les erreurs */
-    margin-top: 10px; /* Marge supérieure pour séparer du bouton */
+    color: #721c24;
+    background-color: #f8d7da; 
+    border: 1px solid #f5c6cb; 
+    padding: 10px; 
+    margin-top: 10px; 
   }
   
